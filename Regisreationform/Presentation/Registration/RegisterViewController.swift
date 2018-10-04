@@ -26,7 +26,7 @@ class RegisterViewController: UIViewController  {
             ,let repassword = repassowrdtextfield.text{
             RegistrationPresenter.register(username: username, password: password, rePassword: repassword , getResponse: {
                 (response) in
-                displayMessage(title: "Response", message: response.rawValue)
+                self.displayMessage(title: "Response", message: response.rawValue)
             } )
         }
     }

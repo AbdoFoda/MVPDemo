@@ -16,8 +16,10 @@ class LoginViewController: UIViewController {
    
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        if UserRepository.canLogin(loginUser: User(userName: userNameTxtField.text!, password: passwordTxtField.text!)) {
-            print("login")
+        if UserRepository.canLogin(username: userNameTxtField.text!, password: passwordTxtField.text! ) {
+            print("login Succefully")
+        }else {
+            print("error")
         }
     }
     override func viewDidLoad() {
@@ -27,4 +29,5 @@ class LoginViewController: UIViewController {
 
 
 }
+
 

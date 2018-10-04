@@ -7,34 +7,44 @@
 //
 
 import Foundation
+import CoreData
 
 class UserRepository  {
-    private static var users = [User]()
+   // private static var users = [User]()
     
     static func userNameExist (userName :String) -> Bool {
-        for user in users {
-            if user.userName == userName {
-                return true
-            }
+        let request :NSFetchRequest = User.fetchRequest()
+        request.predicate = NSPredicate(format: "userName = %@", userName)
+        do {
+            let result = try AppDelegate.viewContext.fetch(request)
+            return result.count > 0
+        }catch {
+            print(error)
+            return false
         }
-        return false
     }
     
-    static func canLogin (loginUser : User)-> Bool {
-        for user in users {
-            if loginUser.userName == user.userName && loginUser.password == user.password {
-                return true
-            }
+    static func canLogin (username : String , password :String)-> Bool {
+        let request :NSFetchRequest = User.fetchRequest()
+        request.predicate = NSPredicate(format: "userName = %@ AND password = %@", username , password)
+        do {
+            let result = try AppDelegate.viewContext.fetch(request)
+            return result.count > 0
+        }catch {
+            print(error)
+            return false
         }
-        return false
     }
     
-    static func insertUser(user : User) ->Bool {
-        if !userNameExist(userName: user.userName) {
-            users.append(user)
+    static func insertUser(_ username : String ,_ password : String) ->Bool {
+        if !UserRepository.userNameExist(userName: username) {
+            let user = User(context: AppDelegate.viewContext)
+            user.userName = username
+            user.password = password
             return true
+        }else{
+            return false
         }
-        return false
     }
     
 }

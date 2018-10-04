@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0401752163E6EC0028B7EC /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B0401732163E6EC0028B7EC /* DataBase.xcdatamodeld */; };
 		2B9AF958215F88BD00FE2F73 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AF957215F88BD00FE2F73 /* UserModel.swift */; };
 		2B9AF95A215F89AE00FE2F73 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AF959215F89AE00FE2F73 /* RegistrationPresenter.swift */; };
 		2B9AF961215F8BFC00FE2F73 /* RegistrationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AF960215F8BFC00FE2F73 /* RegistrationContract.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B0401742163E6EC0028B7EC /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		2B9AF957215F88BD00FE2F73 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2B9AF959215F89AE00FE2F73 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
 		2B9AF960215F8BFC00FE2F73 /* RegistrationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationContract.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				2BC1A3AD215AA11900812DCC /* Main.storyboard */,
 				2B9AF95F215F8A8900FE2F73 /* Login */,
 				2B9AF95C215F8A5F00FE2F73 /* Registration */,
+				2B0401732163E6EC0028B7EC /* DataBase.xcdatamodeld */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				2B9AF963215F8D8700FE2F73 /* RegistrationResponse.swift in Sources */,
 				2B9AF965215F9E4F00FE2F73 /* UserRepository.swift in Sources */,
 				2BC1A3AA215AA11900812DCC /* AppDelegate.swift in Sources */,
+				2B0401752163E6EC0028B7EC /* DataBase.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +404,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2B0401732163E6EC0028B7EC /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2B0401742163E6EC0028B7EC /* DataBase.xcdatamodel */,
+			);
+			currentVersion = 2B0401742163E6EC0028B7EC /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2BC1A39E215AA11900812DCC /* Project object */;
 }

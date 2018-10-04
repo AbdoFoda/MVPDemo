@@ -9,9 +9,18 @@
 import Foundation
 
 class RegistrationPresenter {
-    
+    /*
+     func alamoFire(..) {
+     
+        completion(file)
+        .....
+     
+        return
+     }
+     
+     */
 
-    static func register(username :String , password : String , rePassword : String , getResponse : (RegistrationResponse) ->Void) {
+    static func register(username :String , password : String , rePassword : String , getResponse : (RegistrationResponse) ->Void ) {
         if(username.isEmpty || password.isEmpty||rePassword.isEmpty) {
             getResponse(.emptyFields)
         }
@@ -22,7 +31,7 @@ class RegistrationPresenter {
         }else if (password != rePassword) {
             getResponse( .passwordMismatch)
         }else {
-            if (UserRepository.insertUser(user: User(userName: username, password: password))) {
+            if (UserRepository.insertUser(username,password ) ) {
                 getResponse( .success)
 
             }else {

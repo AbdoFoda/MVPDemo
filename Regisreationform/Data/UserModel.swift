@@ -7,14 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
-class User {
-    var userName : String
-    var password : String
+class User :NSManagedObject{
     
-    init(userName : String , password : String) {
-        self.userName = userName
-        self.password = password
-    }
+    
 }
 
