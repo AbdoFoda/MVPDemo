@@ -31,7 +31,7 @@ class RegistrationPresenter {
         }else if (password != rePassword) {
             getResponse( .passwordMismatch)
         }else {
-            if (UserRepository.insertUser(username,password ) ) {
+            if (User.insertUser(username,password ) ) {
                 getResponse( .success)
 
             }else {

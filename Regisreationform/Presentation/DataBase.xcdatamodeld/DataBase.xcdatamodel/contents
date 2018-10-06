@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Todo" representedClassName=".Todo" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="todoList" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName=".User" syncable="YES" codeGenerationType="category">
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="todoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Todo" inverseName="user" inverseEntity="Todo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-3227.05078125" positionY="-8388.61328125" width="128" height="75"/>
+        <element name="Todo" positionX="-3028.91015625" positionY="-8392.1953125" width="128" height="90"/>
+        <element name="User" positionX="-3210.98046875" positionY="-8402.16015625" width="128" height="90"/>
     </elements>
 </model>

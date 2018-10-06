@@ -13,11 +13,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var userNameTxtField: UITextField!
     
-   
+    var loggedInUser : User!
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        if UserRepository.canLogin(username: userNameTxtField.text!, password: passwordTxtField.text! ) {
+        if let user  = User.canLogin(username: userNameTxtField.text!, password: passwordTxtField.text! ) {
+            loggedInUser = user
             print("login Succefully")
+            performSegue(withIdentifier: "loginSegueID", sender: self)
         }else {
             print("error")
         }
@@ -25,6 +27,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let todoVC = segue.destination as? TodoListViewController {
+            todoVC.getUser(user: loggedInUser)
+        }
     }
 
 

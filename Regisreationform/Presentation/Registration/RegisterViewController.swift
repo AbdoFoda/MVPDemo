@@ -37,7 +37,11 @@ class RegisterViewController: UIViewController  {
     }
     
     
-    
+}
+
+
+
+extension UIViewController {
     
     func displayMessage (title : String , message : String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -47,4 +51,3 @@ class RegisterViewController: UIViewController  {
         self.present(alert , animated: true)
     }
 }
-

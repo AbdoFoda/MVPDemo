@@ -1,16 +1,15 @@
 //
-//  UserRepository.swift
+//  User.swift
 //  Regisreationform
 //
-//  Created by Abdo on 9/29/18.
+//  Created by Abdo on 10/6/18.
 //  Copyright © 2018 Abdo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
-class UserRepository  {
-  
+public class User :NSManagedObject{
     
     static func userNameExist (userName :String) -> Bool {
         let request :NSFetchRequest = User.fetchRequest()
@@ -24,20 +23,23 @@ class UserRepository  {
         }
     }
     
-    static func canLogin (username : String , password :String)-> Bool {
+    static func canLogin (username : String , password :String)-> User? {
         let request :NSFetchRequest = User.fetchRequest()
         request.predicate = NSPredicate(format: "userName = %@ AND password = %@", username , password)
         do {
             let result = try AppDelegate.viewContext.fetch(request)
-            return result.count > 0
+            if result.count == 1 {
+                return result[0]
+            }
         }catch {
             print(error)
-            return false
+            
         }
+        return nil
     }
     
     static func insertUser(_ username : String ,_ password : String) ->Bool {
-        if !UserRepository.userNameExist(userName: username) {
+        if !User.userNameExist(userName: username) {
             let user = User(context: AppDelegate.viewContext)
             user.userName = username
             user.password = password
